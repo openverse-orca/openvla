@@ -179,15 +179,15 @@ PyTorch Distributed Data Parallel (DDP), simply set `--nproc-per-node` in the `t
 ```bash
 torchrun --standalone --nnodes 1 --nproc-per-node 1 vla-scripts/finetune.py \
   --vla_path "openvla/openvla-7b" \
-  --data_root_dir <PATH TO BASE DATASETS DIR> \
+  --data_root_dir orca_gym_dataset \
   --dataset_name bridge_orig \
-  --run_root_dir <PATH TO LOG/CHECKPOINT DIR> \
-  --adapter_tmp_dir <PATH TO TEMPORARY DIR TO SAVE ADAPTER WEIGHTS> \
+  --run_root_dir train_lora \
+  --adapter_tmp_dir train_lora/tmp \
   --lora_rank 32 \
-  --batch_size 16 \
+  --batch_size 8 \
   --grad_accumulation_steps 1 \
   --learning_rate 5e-4 \
-  --image_aug <True or False> \
+  --image_aug False \
   --wandb_project <PROJECT> \
   --wandb_entity <ENTITY> \
   --save_steps <NUMBER OF GRADIENT STEPS PER CHECKPOINT SAVE>
